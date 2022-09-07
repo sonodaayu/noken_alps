@@ -1,7 +1,7 @@
 #追記がある場合は一番下に足すこと
 sensor1: 48:F0:7B:78:4C:75
 sensor2: 48:F0:7B:78:4B:8E
-sensor3: 48:F0:7B:78:4C:69
+sensor3: 48:F0:7B:78:4C:68
 sensor4: 48:F0:7B:78:4B:69
 sensor5: 48:F0:7B:78:4B:6A
 sensor6: 48:F0:7B:78:4C:77

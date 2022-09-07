@@ -3,7 +3,7 @@ sleep_retry=30 #次の試行までの時間
 times_retry=4 #試行回数
 sleep_patrol=900 #巡回間隔15分
 sleep_between_sensors=5 #センサからデータを受け取るタイミングを若干ずらす
-sensors=(1 2) #センサ番号#要変更
+sensors=(1 3 5 7 9) #センサ番号#要変更
 
 while true
 do 
@@ -17,7 +17,7 @@ do
       echo [`date`] sensor${i} was alive >> log.txt
       break
     else
-      /usr/bin/python3 /home/ayu/orchid_alps/alps_sensor_ayu.py sensor${i} &
+      /usr/bin/python3 /home/ayu/noken_alps/alps_sensor_ayu.py sensor${i} &
       sleep $sleep_retry 
       isAlive=`ps -ef | grep "alps_sensor_ayu.py sensor${i}" | grep -v grep | wc -l`
       if [ $isAlive -eq 1 ]; then
@@ -29,7 +29,7 @@ do
     fi
     if [ $j -eq $times_retry ]; then
       echo [`date`] failed to restart sensor${i} and sent notification to LINE >> log.txt
-      /usr/bin/python3 /home/ayu/orchid_alps/line_ntf.py sensor${i}
+      /usr/bin/python3 /home/ayu/noken_alps/line_ntf.py sensor${i}
     fi
     done
   sleep $sleep_between_sensors
