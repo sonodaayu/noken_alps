@@ -66,7 +66,7 @@ class NtfyDelegate(btle.DefaultDelegate):
                 #新しいファイルが作成されるときに前の時間のデータをQNAPに転送
                 last_hour = (datetime.datetime.now() + datetime.timedelta(hours = -1)).strftime('%Y-%m-%d-%H')
                 trans_file_path = './data/' + alps.sensor_number + '/' + last_hour + '.json'
-                qnap_path = 'SmaAgri/Orchid/sonoda/' + alps.sensor_number + '/' + last_hour + '.json'
+                qnap_path = 'SmaAgri/Noken/sonoda/' + alps.sensor_number + '/' + last_hour + '.json'
 
                 ftp_qnap = FTP('10.26.0.1')
                 ftp_qnap.set_pasv('true')
